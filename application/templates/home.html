@@ -7,11 +7,15 @@
 <h3 align="center">Below the is the list of our available books!!</h3>
 </p>
 <hr>
-{% for book in books %}
-	<p><h3><b>Genre: </b>{{ book.genre }}</h3></p>
-	<p><h3><b>Title: </b>{{ book.title }}</h3></p>
-	<p><h3><b>Author: </b>{{ book.author.first }} {{ book.author.last }}</h3></p>
-	<p><h3><b>Content: </b>{{ book.content }}</h3><p>
-	<hr>
-{% endfor %}
+{% if books %}
+	{% for book in books %}
+		<p><h3>Genre: {{ book.genre }}</h3></p>
+		<p><h3>Title: {{ book.title }}</h3></p>
+		<p><h3>Author: {{ book.author.first }} {{ book.author.last }}</h3></p>
+		<p><h3>Content: {{ book.content }}</h3><p>
+		<hr>
+	{% endfor %}
+{% else %}
+	<p>Currently no books available!</p>
+{% endif %}
 {% endblock %}
