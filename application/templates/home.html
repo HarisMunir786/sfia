@@ -3,18 +3,15 @@
 <p>
 <h2>Welcome to my SFIA Project!!</h2>
 </p>
-
 <p>
-<h3>Below the is the list of our available books!!</h3>
+<h3 align="center">Below the is the list of our available books!!</h3>
 </p>
 <hr>
 {% for book in books %}
-	<div>
-		<h3><b>- Genre:</b>{{ book.genre }}</h3>
-		<h3><b>- Title:</b>{{ book.title }}</h3>
-		<p><b>- Author:</b>{{ book.author.first }} {{ book.author.last }}</p>
-		<p> -- {{ book.content }}</p>
-		<hr>
-	</div>
+	<p><h3><b>Genre: </b>{{ book.genre }}</h3></p>
+	<p><h3><b>Title: </b>{{ book.title }}</h3></p>
+	<p><h3><b>Author: </b>{{ book.author.first }} {{ book.author.last }}</h3></p>
+	<p><h3><b>Content: </b>{{ book.content }}</h3><p>
+	<hr>
 {% endfor %}
 {% endblock %}
