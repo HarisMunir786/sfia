@@ -13,3 +13,11 @@ def register():
 @app.route('/login')
 def login():
     return render_template('login.html', title='Login')
+
+@app.route('/myaccount')
+def myaccount():
+    return render_template('myaccount.html', title='My Account')
+
+@app.route('/logout')
+def logout():
+    return render_template('logout.html', title='Logout')
