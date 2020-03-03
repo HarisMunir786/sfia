@@ -1,2 +1,20 @@
 {% extends "layout.html" %}
-<h2>{{ title }}</h2>
+{% block body %}
+<p>
+<h2>Welcome to my SFIA Project!!</h2>
+</p>
+
+<p>
+<h3>Below the is the list of our available books!!</h3>
+</p>
+<hr>
+{% for book in books %}
+	<div>
+		<h3><b>- Genre:</b>{{ book.genre }}</h3>
+		<h3><b>- Title:</b>{{ book.title }}</h3>
+		<p><b>- Author:</b>{{ book.author.first }} {{ book.author.last }}</p>
+		<p> -- {{ book.content }}</p>
+		<hr>
+	</div>
+{% endfor %}
+{% endblock %}
