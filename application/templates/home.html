@@ -1,21 +1,35 @@
 {% extends "layout.html" %}
 {% block body %}
 <p>
-<h2>Welcome to my SFIA Project!!</h2>
+<h2 align="center">==========================</h2>
+<h2 align="center">Welcome to the SFIA#1 Project</h2>
+<h2 align="center">==========================</h2>
 </p>
+
 <p>
-<h3 align="center">Below the is the list of our available books!!</h3>
+<h4 align="center">Your do need to register to access our services!</h4>
+<h4 align="center">Once registere, you would be able to login into your account!</h4>
+<h4 align="center">After login you can choose books from a list and leave your feedback about them!</h4>
+<h4 align="center">*********************!!Enjoy your stay!!*********************</h4>
 </p>
-<hr>
+
+<p>
+<h3 align="center">=================================================</h3>
+<h3 align="center">Below the is the list of our available books</h3>
+<h3 align="center">=================================================</h3>
+</p>
+
 {% if books %}
 	{% for book in books %}
 		<p><h3>Genre: {{ book.genre }}</h3></p>
 		<p><h3>Title: {{ book.title }}</h3></p>
-		<p><h3>Author: {{ book.author.first }} {{ book.author.last }}</h3></p>
+		<p><h3>Author: {{ book.author }}</h3></p>
 		<p><h3>Content: {{ book.content }}</h3><p>
 		<hr>
 	{% endfor %}
 {% else %}
-	<p>Currently no books available!</p>
+	<p>
+	<h2 align="center">Currently no books available!</h2>
+	</p>
 {% endif %}
 {% endblock %}
