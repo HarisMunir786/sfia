@@ -1,17 +1,17 @@
 {% extends "layout.html" %}
 <h2>{{ title }}</h2>
 {% block body %}
-<align="center"><h3>Registeration Page</h3>
-<p>Need an account? Sign up</p>
-	<div class='form'>
+<h3 align="center">Registeration Page</h3>
+<p align="center">Need an account? Sign up</p>
+	<div class="form" align="center">
 	<form method='POST' action=''>
 	{{ form.hidden_tag() }}
 
-	<div class='form_group'>
+	<div class="form_group" align="center">
 	{{ form.name.label }}
 	{{ form.name }}
 	{% if form.name.errors %}
-		<div class='error'>
+		<div class="error" align="center">
 		{% for error in form.name.errors %}
 			<span>{{ error }}</span>
 		{% endfor %}
@@ -20,11 +20,11 @@
 	</div>
 	<br>
 
-	<div class='form_group'>
+	<div class="form_group" align="center">
 	{{ form.email.label }}
 	{{ form.email }}
 	{% if form.email.errors %}
-		<div class='error'>
+		<div class="error" align="center">
 		{% for error in form.email.errors %}
 			<span>{{ error }}</span>
 		{% endfor %}
@@ -33,11 +33,11 @@
 	</div>
 	<br>
 
-	<div class="form_group">
+	<div class="form_group" align="center">
 	{{ form.password.label }}
 	{{ form.password }}
 	{% if form.password.errors %}
-		<div class="error">
+		<div class="error" align="center">
 		{% for error in form.password.errors %}
 			<span>{{ errors }}</span>
 		{% endfor %}
