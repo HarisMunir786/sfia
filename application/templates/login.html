@@ -4,19 +4,30 @@
 	<div class="form_group" align="center">
 	<form method='POST' action=''>
 		{{ form.hidden_tag() }}
-        
-        	<div class="form_group" align="center">
+               	<div class="form_group" align="center">
 	        {{ form.email.label }}
         	{{ form.email }}
+		{% if form.email.errors %}
+			<div class="error" align="center">
+	                {% for error in form.name.errors %}
+        	                <span>{{ error }}</span>
+                	{% endfor %}
+	                </div>
+		{% endif %}
 		</div>
         	<br>
-        
-		<div class="form_group" align="center">
+        	<div class="form_group" align="center">
 		{{ form.password.label }}
 		{{ form.password }}
+                {% if form.email.errors %}
+			<div class="error" align="center">
+	                {% for error in form.name.errors %}
+        	                <span>{{ error }}</span>
+                	{% endfor %}
+	                </div>	
+		{% endif %}
 		</div>
 		<br>
-
 	        <div class="form_group" align="center">
 		{{ form.submit }}
         	</div>

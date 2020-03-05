@@ -24,7 +24,7 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 	if current_user.is_authenticated:
-		return redirect(url_for('myaccount'))
+		return redirect(url_for('login'))
 	form = LoginForm()
 	if form.validate_on_submit():
 		user=User.query.filter_by(email=form.email.data).first()
@@ -34,13 +34,14 @@ def login():
 			if next_page:
 				return redirect(next_page)
 			else:
-				return redirect(url_for('home'))
+				return redirect(url_for('myaccount'))
 	return render_template('login.html', title='Login', form=form)
 
 @app.route('/myaccount')
 def myaccount():
     return render_template('myaccount.html', title='My Account')
 
-@app.route('/logout')
+@app.route("/logout")
 def logout():
-    return render_template('logout.html', title='Logout')
+    logout_user()
+    return redirect(url_for('login'))
