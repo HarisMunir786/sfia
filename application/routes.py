@@ -1,14 +1,14 @@
 from flask import render_template, url_for, redirect, request
-from application import app, db
-from application.models import User, Books
+from application import app, db, bcrypt
+from application.models import User, Book
 from flask_login import login_user, current_user, logout_user, login_required
 from application.forms import LoginForm, RegistrationForm
 
 @app.route('/')
 @app.route('/home')
 def home():
-	books=Books.query.all()
-	return render_template('home.html', title='Home', books=books)
+#	books=Books.query.all()
+	return render_template('home.html', title='Home')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
