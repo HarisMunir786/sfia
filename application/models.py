@@ -2,6 +2,11 @@ from application import db
 from application import login_manager
 from flask_login import UserMixin
 
+
+@login_manager.user_loader
+def load_user(id):
+	return User.query.get(int(id))
+
 class Book(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	genre = db.Column(db.String(30), nullable=False)
@@ -33,6 +38,3 @@ class User(db.Model, UserMixin):
 #			'Feedback: ', self.feedback
 			])
 
-	@login_manager.user_loader
-	def load_user(id):
-        	return User.query.get(int(id))
