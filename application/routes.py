@@ -7,8 +7,9 @@ from application.forms import LoginForm, RegistrationForm
 @app.route('/')
 @app.route('/home')
 def home():
-#	books=Books.query.all()
-	return render_template('home.html', title='Home')
+	bookData = Book.query.all()
+	return render_template('home.html', title='Home', books=bookData)
+#	return render_template('home.html', title='Home')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -38,8 +39,11 @@ def login():
 	return render_template('login.html', title='Login', form=form)
 
 @app.route('/myaccount')
+@login_required
 def myaccount():
-    return render_template('myaccount.html', title='My Account')
+	user = current_user
+#	return render_template('myaccount.html', title='Hi %s'%(user.name), uform=UserForm(), user=user)
+	return render_template('myaccount.html', title='My Account')
 
 @app.route("/logout")
 def logout():

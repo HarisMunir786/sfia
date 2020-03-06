@@ -18,7 +18,7 @@
 <h3 align="center">Below the is the list of our available books</h3>
 <h3 align="center">=================================================</h3>
 </p>
-
+<form action='/','/home' method='GET'>
 {% if books %}
 	{% for book in books %}
 		<p><h3>Genre: {{ book.genre }}</h3></p>
@@ -32,4 +32,5 @@
 	<h2 align="center">Currently no books available!</h2>
 	</p>
 {% endif %}
+</form>
 {% endblock %}

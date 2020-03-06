@@ -1,2 +1,9 @@
 {% extends "layout.html" %}
-<h2>{{ title }}</h2>
+<h2 align="center">{{ title }}</h2>
+
+<div align="center">
+	<h3>First Name:       {{user.first_name}}</h3>
+	<h3>Last Name:        {{user.last_name}}</h3>
+	<h3>User ID:          {{user.id}}</h3>
+	<h3>User Email:       {{user.email}}</h3>
+</div>
