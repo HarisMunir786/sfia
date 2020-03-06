@@ -36,6 +36,7 @@
 <form action='/','/home' method='GET'>
 {% if books %}
 	{% for book in books %}
+	<p>
 	<table width="80%" height="100%" border="1px" align="center">
 	<tbody>
 		<tr>
@@ -60,6 +61,7 @@
 			</td>
 		</tr>
 	</tbody>
+	</p>
 	{% endfor %}
 {% else %}
         <p>
