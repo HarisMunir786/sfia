@@ -13,6 +13,7 @@ class Book(db.Model):
 	author = db.Column(db.String(30), nullable=False)
 	title = db.Column(db.String(100), nullable=False, unique=True)
 	content = db.Column(db.String(500), nullable=False, unique=True)
+#	image = db.Column(db.String(800), nullable=False)
 #	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 	def __repr__(self):

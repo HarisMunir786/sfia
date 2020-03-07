@@ -55,29 +55,35 @@ class LoginForm(FlaskForm):
 	remember = BooleanField('Remember Me')
 	submit = SubmitField('Login')
 
-class BookForm(FlaskForm):
-    genre = StringField('Genre',
-        validators = [
-            DataRequired(),
-            Length(min=2, max=30)
-        ]
-    )
-    author = StringField('Author',
-        validators = [
-            DataRequired(),
-            Length(min=2, max=30)
-        ]
-    )
-    title = StringField('Title',
-        validators = [
-            DataRequired(),
-            Length(min=2, max=100)
-        ]
-    )
-    content = StringField('Content',
-        validators = [
-            DataRequired(),
-            Length(min=2, max=1000)
-        ]
-    )
-    submit = SubmitField('Post!')
+class AddBookForm(FlaskForm):
+	genre = StringField('Genre',
+		validators = [
+			DataRequired(),
+			Length(min=2, max=30)
+		]
+	)
+	author = StringField('Author',
+		validators = [
+			DataRequired(),
+			Length(min=2, max=30)
+		]
+	)
+	title = StringField('Title',
+		validators = [
+			DataRequired(),
+			Length(min=2, max=100)
+		]
+	)
+	content = StringField('Content',
+		validators = [
+			DataRequired(),
+			Length(min=2, max=1000)
+		]
+	)
+	image = StringField('Content',
+		validators = [
+			DataRequired(),
+			Length(min=2, max=1000)
+		]
+	)
+	submit = SubmitField('Entry!')

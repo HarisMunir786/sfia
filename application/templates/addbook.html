@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block body %}
+<h3 align="center">Enter the book details:</h3>
+	<div class="form" align="center">
+	<form method='POST' action=''>
+	{{ form.hidden_tag() }}
+	
+	<div class="form_group" align="center">
+	{{ form.genre.label }}
+	{{ form.genre }}
+	{% if form.genre.errors %}
+		<div class="error" align="center">
+		{% for error in form.genre.errors %}
+			<span>{{ error }}</span>
+		{% endfor %}
+		</div>
+	{% endif %}
+	</div>
+	<br>
+
+	<div class="form_group" align="center">
+	{{ form.title.label }}
+	{{ form.title }}
+	{% if form.title.errors %}
+		<div class="error" align="center">
+		{% for error in form.title.errors %}
+			<span>{{ error }}</span>
+		{% endfor %}
+		</div>
+	{% endif %}
+	</div>
+	<br>
+
+	<div class="form_group" align="center">
+	{{ form.author.label }}
+	{{ form.author }}
+	{% if form.author.errors %}
+		<div class="error" align="center">
+		{% for error in form.author.errors %}
+			<span>{{ error }}</span>
+		{% endfor %}
+		</div>
+	{% endif %}
+	</div>
+	<br>
+
+	<div class="form_group" align="center">
+	{{ form.content.label }}
+	{{ form.content }}
+	{% if form.content.errors %}
+		<div class="error" align="center">
+		{% for error in form.content.errors %}
+			<span>{{ error }}</span>
+		{% endfor %}
+		</div>
+	{% endif %}
+	</div>
+        <div class='form_group'>
+        {{ form.submit }}
+        </div>
+	</form>
+	</div>
+{% endblock %}

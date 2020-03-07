@@ -2,7 +2,7 @@ from flask import render_template, url_for, redirect, request
 from application import app, db, bcrypt
 from application.models import User, Book
 from flask_login import login_user, current_user, logout_user, login_required
-from application.forms import LoginForm, RegistrationForm
+from application.forms import LoginForm, RegistrationForm, AddBookForm
 
 @app.route('/')
 @app.route('/home')
@@ -47,5 +47,20 @@ def myaccount():
 
 @app.route("/logout")
 def logout():
-    logout_user()
-    return redirect(url_for('login'))
+	logout_user()
+	return redirect(url_for('login'))
+
+@app.route("/addbook", methods=['GET', 'POST'])
+@login_required
+def addbook():
+	form = AddBookForm()
+	if request.method == 'POST':
+		if current_user.is_authenticated:
+			bookentry = Book(genre=form.genre.data, title=form.title.data, author=form.author.data, content=form.content.data)
+			db.session.add(bookentry)
+			db.session.commit()
+			return redirect(url_for('myaccount'))
+		else:
+			return render_template('register.html', title='Register', form=form)
+	else:
+		return render_template('addbook.html', form=form)

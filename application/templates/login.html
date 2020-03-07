@@ -9,7 +9,7 @@
         	{{ form.email }}
 		{% if form.email.errors %}
 			<div class="error" align="center">
-	                {% for error in form.name.errors %}
+	                {% for error in form.email.errors %}
         	                <span>{{ error }}</span>
                 	{% endfor %}
 	                </div>
@@ -19,9 +19,9 @@
         	<div class="form_group" align="center">
 		{{ form.password.label }}
 		{{ form.password }}
-                {% if form.email.errors %}
+                {% if form.password.errors %}
 			<div class="error" align="center">
-	                {% for error in form.name.errors %}
+	                {% for error in form.password.errors %}
         	                <span>{{ error }}</span>
                 	{% endfor %}
 	                </div>	
