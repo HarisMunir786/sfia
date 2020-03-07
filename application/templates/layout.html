@@ -5,26 +5,62 @@
 	</head>
 	<body>
 	{% if current_user.is_authenticated %}
-        <div class ="navbar" align="center">
-                <a>&nbsp</a><a>&nbsp</a>
-                <a href="{{ url_for('home') }}">Home</a>
-                <a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
-                <a href ="{{ url_for ('myaccount') }}">My Account</a>
+		<div class ="navbar" align="center">
+		<a>&nbsp</a><a>&nbsp</a>
+		<a href="{{ url_for('home') }}">Home</a>
 		<a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
-                <a href ="{{ url_for ('addbook') }}">Add Book</a>
-                <a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
-                <a href ="{{ url_for ('logout') }}">Logout</a>
-        </div>
+		<a href ="{{ url_for ('ourbooks') }}">Our Books</a>
+		<a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
+		<a href ="{{ url_for ('myaccount') }}">My Account</a>
+		<a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
+		<a href ="{{ url_for ('addbook') }}">Add Book</a>
+		<a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
+		<a href ="{{ url_for ('updatebook') }}">Update Book</a>
+		<a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
+		<a href ="{{ url_for ('deletebook') }}">Delete Book</a>
+		<a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
+		<a href ="{{ url_for ('logout') }}">Logout</a>
+		</div>
+        <!--div class ="navbar" align="center">
+		{% if current_user.is_authenticated=="admin@test.com" %}
+			        <div class ="navbar" align="center">
+				<a>&nbsp</a><a>&nbsp</a>
+				<a href="{{ url_for('home') }}">Home</a>
+				<a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
+				<a href ="{{ url_for ('myaccount') }}">Admin Account</a>
+				<a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
+				<a href ="{{ url_for ('addbook') }}">Add Book</a>
+				<a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
+				<a href ="{{ url_for ('updbook') }}">Update Book</a>
+				<a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
+				<a href ="{{ url_for ('delbook') }}">Delete Book</a>
+				<a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
+				<a href ="{{ url_for ('logout') }}">Logout</a>
+				</div>
+		{% else %}
+			<div class ="navbar" align="center">
+			<a>&nbsp</a><a>&nbsp</a>
+			<a href="{{ url_for('home') }}">Home</a>
+			<a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
+                        <a href ="{{ url_for ('ourbooks') }}">Our Books</a>
+                        <a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
+			<a href ="{{ url_for ('myaccount') }}">My Account</a>
+			<a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
+			<a href ="{{ url_for ('logout') }}">Logout</a>
+			</div>
+		{% endif %}-->
 	{% else %}
 	<div class ="navbar" align="center">
 		<a>&nbsp</a><a>&nbsp</a>
 		<a href="{{ url_for('home') }}">Home</a>
 		<a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
+                <a href ="{{ url_for ('ourbooks') }}">Our Books</a>
+                <a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
 		<a href="{{ url_for('register') }}">Register</a>
 		<a>&nbsp</a><a>&nbsp</a><a>|</a><a>&nbsp</a><a>&nbsp</a>
 		<a href="{{ url_for('login') }}">Login</a>
 	</div>
 	{% endif %}
-		{% block body %}{% endblock %}
+	{% block body %}{% endblock %}
 	</body>
 </html>

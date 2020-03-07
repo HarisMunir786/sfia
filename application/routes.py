@@ -2,14 +2,12 @@ from flask import render_template, url_for, redirect, request
 from application import app, db, bcrypt
 from application.models import User, Book
 from flask_login import login_user, current_user, logout_user, login_required
-from application.forms import LoginForm, RegistrationForm, AddBookForm
+from application.forms import LoginForm, RegistrationForm, AddBookForm, DeleteBookForm
 
 @app.route('/')
 @app.route('/home')
 def home():
-	bookData = Book.query.all()
-	return render_template('home.html', title='Home', books=bookData)
-#	return render_template('home.html', title='Home')
+	return render_template('home.html', title='Home')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -64,3 +62,31 @@ def addbook():
 			return render_template('register.html', title='Register', form=form)
 	else:
 		return render_template('addbook.html', form=form)
+
+@app.route("/ourbooks")
+def ourbooks():
+	allbooks = Book.query.all()
+	return render_template('ourbooks.html', title='Our Books', books=allbooks)
+
+@app.route("/updatebook", methods=['GET', 'POST'])
+@login_required
+def updatebook():
+	updatebook = Book.query.all()
+	return render_template('updatebook.html', title='Update Books', books=updatebook)
+
+@app.route("/deletebook", methods=['GET', 'POST'])
+def deletebook():
+	deletebook = Book.query.all()
+	return render_template('deletebook.html', title='Delete Books', books=deletebook)
+#	form = DeleteBookForm()
+#	if request.method == 'POST':
+#	return render_template('delbook.html', title='Delete Books')
+#		if current_user.is_authenticated:
+#			bookdelete = Book(genre=form.genre.data, title=form.title.data, author=form.author.data, content=form.content.data)
+#			db.session.delete(bookdelete)
+#			db.session.commit()
+#			return redirect(url_for('myaccount'))
+#		else:
+#			return render_template('register.html', title='Register', form=form)
+#	else:
+#		return render_template('addbook.html', form=form)

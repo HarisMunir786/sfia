@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+<h2 align="center">{{ title }}</h2>
+{% block body %}
+<p>
+<h3 align="center">=================================================</h3>
+<h3 align="center">Below the is the list of our available books</h3>
+<h3 align="center">=================================================</h3>
+</p>
+<form action='/','/home' method='GET'>
+{% if books %}
+        {% for book in books %}
+        <p>
+        <table width="70%" height="80%" border="1px" align="center">
+        <tbody>
+                <tr>
+                        <td style="width:40%; text-align: center;" rowspan="4">image</td>
+                        <td style="text-align: left">
+                        <h4>Title: </h4>{{ book.title }}
+                        </td>
+                </tr>
+                <tr>
+                        <td style="text-align: left">
+                        <h4>Content: </h4>{{ book.content }}
+                        </td>
+                </tr>
+                <tr>
+                        <td style="text-align: left">
+                        <h4>Author: </h4>{{ book.author }}
+                        </td>
+                </tr>
+                <tr>
+                        <td style="text-align: left">
+                        <h4>Genre: </h4>{{ book.genre }}
+                        </td>
+                </tr>
+        </tbody>
+        </p>
+        {% endfor %}
+{% else %}
+        <p>
+        <h2 align="center">Currently no books available!</h2>
+        </p>
+{% endif %}
+</table>
+</form>
+{% endblock %}
