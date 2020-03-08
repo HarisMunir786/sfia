@@ -48,7 +48,7 @@ def logout():
 	logout_user()
 	return redirect(url_for('login'))
 
-@app.route("/addbook", methods=['GET', 'POST'])
+@app.route('/addbook', methods=['GET', 'POST'])
 @login_required
 def addbook():
 	form = AddBookForm()
@@ -63,21 +63,28 @@ def addbook():
 	else:
 		return render_template('addbook.html', form=form)
 
-@app.route("/ourbooks")
+@app.route('/ourbooks')
 def ourbooks():
 	allbooks = Book.query.all()
 	return render_template('ourbooks.html', title='Our Books', books=allbooks)
 
-@app.route("/updatebook", methods=['GET', 'POST'])
+@app.route('/updatebook', methods=['GET', 'POST'])
 @login_required
 def updatebook():
 	updatebook = Book.query.all()
 	return render_template('updatebook.html', title='Update Books', books=updatebook)
 
-@app.route("/deletebook", methods=['GET', 'POST'])
+@app.route('/deletebook', methods=['GET', 'POST'])
 def deletebook():
-	deletebook = Book.query.all()
-	return render_template('deletebook.html', title='Delete Books', books=deletebook)
+	form = DeleteBookForm()
+	if request.method == 'POST':
+		deletebook = Book.query.filter_by(id=book).first()
+		db.session.delete(deletebook)
+		db.session.commit
+		return redirect ('deletebook', books=deletebook)
+#	deletebook = Book.query.all()
+#	return render_template('deletebook.html', title='Delete Books', books=deletebook)
+
 #	form = DeleteBookForm()
 #	if request.method == 'POST':
 #	return render_template('delbook.html', title='Delete Books')

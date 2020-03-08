@@ -3,7 +3,7 @@
 {% block body %}
 <p>
 <h3 align="center">=================================================</h3>
-<h3 align="center">Below the is the list of our available books</h3>
+<h3 align="center">Below the is the list of our available books, which you can delete</h3>
 <h3 align="center">=================================================</h3>
 </p>
 <form action='/','/home' method='GET'>
@@ -34,7 +34,9 @@
                         </td>
                 </tr>
         </tbody>
-        </p>
+	<form action="{{ url_for('deletebook') }}">
+	<button type="submit">Delete this book</button>
+	</form>
         {% endfor %}
 {% else %}
         <p>
