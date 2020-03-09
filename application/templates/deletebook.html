@@ -33,10 +33,15 @@
                         <h4>Genre: </h4>{{ book.genre }}
                         </td>
                 </tr>
-        </tbody>
+                <tr>
+        	        <td style="text-align: center">
+		        <a href="{{ url_for('deletebook') }}">Delete this book</a>
+	                </td>
+                </tr>
 	<form action="{{ url_for('deletebook') }}">
 	<button type="submit">Delete this book</button>
 	</form>
+	</tbody>
         {% endfor %}
 {% else %}
         <p>
